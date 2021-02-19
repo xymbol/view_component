@@ -7,9 +7,17 @@ module ViewComponent
     attr_reader :component
     delegate :format, to: :component
 
+
+    def initialize(component, object, **options)
+      @component = component
+      @collection = collection_variable(object || [])
+      @options = options
+    end
+
     def render_in(view_context, &block)
       iterator = ActionView::PartialIteration.new(@collection.size)
 
+      component.compile(raise_errors: true)
       component.validate_collection_parameter!(validate_default: true)
 
       @collection.map do |item|
@@ -20,12 +28,6 @@ module ViewComponent
     end
 
     private
-
-    def initialize(component, object, **options)
-      @component = component
-      @collection = collection_variable(object || [])
-      @options = options
-    end
 
     def collection_variable(object)
       if object.respond_to?(:to_ary)
