@@ -438,8 +438,11 @@ class IntegrationTest < ActionDispatch::IntegrationTest
 
   def test_does_not_render_additional_newline
     without_template_annotations do
+      ActionView::Template::Handlers::ERB.strip_trailing_newline = true if ENV.fetch('RAILS_VERSION', 'main') == 'main'
       get "/rails/view_components/display_inline_component/with_newline"
       assert_includes response.body, "<span>Hello, world!</span><span>Hello, world!</span>"
+    ensure
+      ActionView::Template::Handlers::ERB.strip_trailing_newline = false if ENV.fetch('RAILS_VERSION', 'main') == 'main'
     end
   end
 
