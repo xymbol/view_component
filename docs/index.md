@@ -131,6 +131,7 @@ ViewComponent is built by over a hundred members of the community, including:
 <img src="https://avatars.githubusercontent.com/g13ydson?s=64" alt="g13ydson" width="32" />
 <img src="https://avatars.githubusercontent.com/horacio?s=64" alt="horacio" width="32" />
 <img src="https://avatars.githubusercontent.com/jaredcwhite?s=64" alt="jaredcwhite" width="32" />
+<img src="https://avatars.githubusercontent.com/javierm?s=64" alt="javierm" width="32" />
 <img src="https://avatars.githubusercontent.com/jcoyne?s=64" alt="jcoyne" width="32" />
 <img src="https://avatars.githubusercontent.com/jensljungblad?s=64" alt="jensljungblad" width="32" />
 <img src="https://avatars.githubusercontent.com/joelhawksley?s=64" alt="joelhawksley" width="32" />
@@ -149,6 +150,7 @@ ViewComponent is built by over a hundred members of the community, including:
 <img src="https://avatars.githubusercontent.com/mixergtz?s=64" alt="mixergtz" width="32" />
 <img src="https://avatars.githubusercontent.com/mrrooijen?s=64" alt="mrrooijen" width="32" />
 <img src="https://avatars.githubusercontent.com/nashby?s=64" alt="nashby" width="32" />
+<img src="https://avatars.githubusercontent.com/nicolas-brousse?s=64" alt="nicolas-brousse" width="32" />
 <img src="https://avatars.githubusercontent.com/nielsslot?s=64" alt="nshki" width="32" />
 <img src="https://avatars.githubusercontent.com/nshki?s=64" alt="nshki" width="32" />
 <img src="https://avatars.githubusercontent.com/rainerborene?s=64" alt="rainerborene" width="32" />
@@ -173,6 +175,9 @@ ViewComponent is built by over a hundred members of the community, including:
 <img src="https://avatars.githubusercontent.com/ryogift?s=64" alt="ryogift" width="32" />
 <img src="https://avatars.githubusercontent.com/andrewjtait?s=64" alt="andrewjtait" width="32" />
 <img src="https://avatars.githubusercontent.com/websebdev?s=64" alt="websebdev" width="32" />
+<img src="https://avatars.githubusercontent.com/xkraty?s=64" alt="xkraty" width="32" />
+<img src="https://avatars.githubusercontent.com/wdrexler?s=64" alt="wdrexler" width="32" />
+<img src="https://avatars.githubusercontent.com/mattwr18?s=64" alt="mattwr18" width="32" />
 
 <hr />
 

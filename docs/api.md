@@ -29,7 +29,8 @@ EXPERIMENTAL: Optional content to be returned after the rendered template.
 
 ### #before_render → [void]
 
-Called before rendering the component. Override to perform operations that depend on having access to the view context, such as helpers.
+Called before rendering the component. Override to perform operations that
+depend on having access to the view context, such as helpers.
 
 ### #before_render_check → [void] (Deprecated)
 
@@ -39,31 +40,61 @@ _Use `#before_render` instead. Will be removed in v3.0.0._
 
 ### #controller → [ActionController::Base]
 
-The current controller. Use sparingly as doing so introduces coupling that inhibits encapsulation & reuse, often making testing difficult.
+The current controller. Use sparingly as doing so introduces coupling
+that inhibits encapsulation & reuse, often making testing difficult.
 
 ### #helpers → [ActionView::Base]
 
-A proxy through which to access helpers. Use sparingly as doing so introduces coupling that inhibits encapsulation & reuse, often making testing difficult.
+A proxy through which to access helpers. Use sparingly as doing so introduces
+coupling that inhibits encapsulation & reuse, often making testing difficult.
 
 ### #render? → [Boolean]
 
 Override to determine whether the ViewComponent should render.
 
+### #render_in(view_context, &block) → [String]
+
+Entrypoint for rendering components.
+
+- `view_context`: ActionView context from calling view
+- `block`: optional block to be captured within the view context
+
+Returns HTML that has been escaped by the respective template handler.
+
 ### #request → [ActionDispatch::Request]
 
-The current request. Use sparingly as doing so introduces coupling that inhibits encapsulation & reuse, often making testing difficult.
+The current request. Use sparingly as doing so introduces coupling that
+inhibits encapsulation & reuse, often making testing difficult.
 
-### #with_variant(variant) → [self]
+### #with_variant(variant) → [self] (Deprecated)
 
 Use the provided variant instead of the one determined by the current request.
 
+_Will be removed in v3.0.0._
+
 ## Configuration
+
+### #component_parent_class
+
+Parent class for generated components
+
+    config.view_component.component_parent_class = "MyBaseComponent"
+
+Defaults to "ApplicationComponent" if defined, "ViewComponent::Base" otherwise.
 
 ### #default_preview_layout
 
 Set a custom default layout used for preview index and individual previews:
 
     config.view_component.default_preview_layout = "component_preview"
+
+### #generate_stimulus_controller
+
+Always generate a Stimulus controller alongside the component:
+
+    config.view_component.generate_stimulus_controller = true
+
+Defaults to `false`.
 
 ### #preview_controller
 
@@ -129,3 +160,46 @@ Path for component files
     config.view_component.view_component_path = "app/my_components"
 
 Defaults to "app/components".
+
+## ViewComponent::TestHelpers
+
+### #render_inline(component, **args, &block) → [Nokogiri::HTML]
+
+Render a component inline. Internally sets `page` to be a `Capybara::Node::Simple`,
+allowing for Capybara assertions to be used:
+
+```ruby
+render_inline(MyComponent.new)
+assert_text("Hello, World!")
+```
+
+### #with_controller_class(klass)
+
+Set the controller to be used while executing the given block,
+allowing access to controller-specific methods:
+
+```ruby
+with_controller_class(UsersController) do
+  render_inline(MyComponent.new)
+end
+```
+
+### #with_request_url(path)
+
+Set the URL for the current request (such as when using request-dependent path helpers):
+
+```ruby
+with_request_url("/users/42") do
+  render_inline(MyComponent.new)
+end
+```
+
+### #with_variant(variant)
+
+Set the Action Pack request variant for the given block:
+
+```ruby
+with_variant(:phone) do
+  render_inline(MyComponent.new)
+end
+```
