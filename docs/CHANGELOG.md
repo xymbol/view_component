@@ -7,6 +7,10 @@ title: Changelog
 
 ## main
 
+* Add test coverage for use of `turbo_stream` helpers in components.
+
+    *Simon Fish*
+
 * Add generators to support `tailwindcss-rails`.
 
     *Dino Maric*, *Hans Lemuet*

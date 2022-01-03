@@ -222,6 +222,9 @@ GEM
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.1.0)
     tilt (2.0.10)
+    turbo-rails (1.0.0)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.6.1)
@@ -256,6 +259,7 @@ DEPENDENCIES
   simplecov-console (~> 0.7.2)
   slim (~> 4.0)
   sprockets-rails (~> 3.2.2)
+  turbo-rails (~> 1)
   view_component!
   yard (~> 0.9.25)
   yard-activesupport-concern
