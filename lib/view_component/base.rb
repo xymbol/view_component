@@ -307,7 +307,7 @@ module ViewComponent
     # Defaults to "ApplicationComponent" if defined, "ViewComponent::Base" otherwise.
     #
     mattr_accessor :generate, instance_writer: false, default: (ActiveSupport::OrderedOptions.new.tap do |c|
-      c.component_path = 'app/components'
+      c.component_path = "app/components"
     end)
 
     class << self
