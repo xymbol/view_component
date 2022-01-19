@@ -38,7 +38,7 @@ module Rails
       def parent_class
         return options[:parent] if options[:parent]
 
-        ViewComponent::Base.component_parent_class || default_parent_class
+        ViewComponent::Base.generate.parent_class || default_parent_class
       end
 
       def initialize_signature

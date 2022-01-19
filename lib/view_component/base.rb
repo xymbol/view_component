@@ -271,14 +271,6 @@ module ViewComponent
     #
     mattr_accessor :render_monkey_patch_enabled, instance_writer: false, default: true
 
-    # Parent class for generated components
-    #
-    #     config.view_component.component_parent_class = "MyBaseComponent"
-    #
-    # Defaults to "ApplicationComponent" if defined, "ViewComponent::Base" otherwise.
-    #
-    mattr_accessor :component_parent_class, instance_writer: false
-
     # Configuration for generators
     #
     # Defaults to `false` unless otherwise stated.
@@ -307,6 +299,12 @@ module ViewComponent
     #     config.view_component.generate.component_path = "app/my_components"
     #
     # Defaults to `app/components`.
+    #
+    # Parent class for generated components
+    #
+    #     config.view_component.generate.parent_class = "MyBaseComponent"
+    #
+    # Defaults to "ApplicationComponent" if defined, "ViewComponent::Base" otherwise.
     #
     mattr_accessor :generate, instance_writer: false, default: (ActiveSupport::OrderedOptions.new.tap do |c|
       c.component_path = 'app/components'
