@@ -308,7 +308,9 @@ module ViewComponent
     #
     # Defaults to `app/components`.
     #
-    mattr_accessor :generate, instance_writer: false, default: ActiveSupport::OrderedOptions.new
+    mattr_accessor :generate, instance_writer: false, default: (ActiveSupport::OrderedOptions.new.tap do |c|
+      c.component_path = 'app/components'
+    end)
 
     class << self
       # @private
