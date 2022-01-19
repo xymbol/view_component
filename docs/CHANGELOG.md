@@ -7,6 +7,10 @@ title: Changelog
 
 ## main
 
+* Place all generator options under `config.generate` namespace,
+
+    *Simon Fish*
+
 * Add good and bad examples to `ViewComponents in practice`.
 
     *Joel Hawksley*
