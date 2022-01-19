@@ -53,11 +53,11 @@ def with_preview_controller(new_value)
 end
 
 def with_custom_component_path(new_value)
-  old_value = ViewComponent::Base.view_component_path
-  ViewComponent::Base.view_component_path = new_value
+  old_value = ViewComponent::Base.generate.component_path
+  ViewComponent::Base.generate.component_path = new_value
   yield
 ensure
-  ViewComponent::Base.view_component_path = old_value
+  ViewComponent::Base.generate.component_path = old_value
 end
 
 def with_custom_component_parent_class(new_value)

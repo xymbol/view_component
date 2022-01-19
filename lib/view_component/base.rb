@@ -271,14 +271,6 @@ module ViewComponent
     #
     mattr_accessor :render_monkey_patch_enabled, instance_writer: false, default: true
 
-    # Path for component files
-    #
-    #     config.view_component.view_component_path = "app/my_components"
-    #
-    # Defaults to `app/components`.
-    #
-    mattr_accessor :view_component_path, instance_writer: false, default: "app/components"
-
     # Parent class for generated components
     #
     #     config.view_component.component_parent_class = "MyBaseComponent"
@@ -309,6 +301,12 @@ module ViewComponent
     #
     # One file will be generated for each configured `I18n.available_locales`.
     # Fallback on `[:en]` when no available_locales is defined.
+    #
+    # Path for component files
+    #
+    #     config.view_component.generate.component_path = "app/my_components"
+    #
+    # Defaults to `app/components`.
     #
     mattr_accessor :generate, instance_writer: false, default: ActiveSupport::OrderedOptions.new
 
@@ -395,7 +393,7 @@ module ViewComponent
 
         # Removes the first part of the path and the extension.
         child.virtual_path = child.source_location.gsub(
-          %r{(.*#{Regexp.quote(ViewComponent::Base.view_component_path)})|(\.rb)}, ""
+          %r{(.*#{Regexp.quote(ViewComponent::Base.generate.component_path)})|(\.rb)}, ""
         )
 
         # Set collection parameter to the extended component
