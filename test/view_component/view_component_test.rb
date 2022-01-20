@@ -442,6 +442,13 @@ class ViewComponentTest < ViewComponent::TestCase
     assert_no_text("component was rendered")
   end
 
+  def test_conditional_rendering_alias
+    component = ConditionalRenderComponent.new(should_render: false)
+
+    refute_predicate component, :render?
+    refute_predicate component, :rendered?
+  end
+
   def test_conditional_rendering_if_content_provided
     render_inline(ConditionalContentComponent.new)
 

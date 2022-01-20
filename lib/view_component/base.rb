@@ -125,6 +125,14 @@ module ViewComponent
       true
     end
 
+    # It exposes conditional rendering with a more readable predicate method,
+    # mainly for tests and specs.
+    #
+    # @private
+    def rendered?
+      render?
+    end
+
     # @private
     def initialize(*); end
 
